@@ -17,7 +17,7 @@
             <Input v-model="formPassword.tfa_code"/>
           </FormItem>
           <FormItem v-if="visible.passwordAlert">
-            <Alert type="success">You will need to login again after 5 seconds..</Alert>
+            <Alert type="success">你需要在5秒内重新登录..</Alert>
           </FormItem>
           <Button type="primary" @click="changePassword">{{$t('m.Update_Password')}}</Button>
         </Form>
@@ -128,7 +128,7 @@
           api.changePassword(data).then(res => {
             this.loading.btnPassword = false
             this.visible.passwordAlert = true
-            this.$success('Update password successfully')
+            this.$success('修改密码成功！')
             setTimeout(() => {
               this.visible.passwordAlert = false
               this.$router.push({name: 'logout'})
@@ -151,7 +151,7 @@
           api.changeEmail(data).then(res => {
             this.loading.btnEmail = false
             this.visible.emailAlert = true
-            this.$success('Change email successfully')
+            this.$success('更改邮箱成功！')
             this.$refs.formEmail.resetFields()
           }, res => {
             if (res.data.data === 'tfa_required') {

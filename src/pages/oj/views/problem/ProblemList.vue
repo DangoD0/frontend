@@ -1,8 +1,8 @@
 <template>
   <Row type="flex" :gutter="18">
-    <Col :span=24>
+    <Col :span=19>
     <Panel shadow>
-      <div slot="title">{{$t('m.Problems_List')}}</div>
+      <div slot="title">{{$t('m.Problem_List')}}</div>
       <div slot="extra">
         <ul class="filter">
           <!-- <li>
@@ -18,17 +18,17 @@
               </Dropdown-menu>
             </Dropdown>
           </li> -->
-          <!-- <li>
+          <li>
             <i-switch size="large" @on-change="handleTagsVisible">
               <span slot="open">{{$t('m.Tags')}}</span>
               <span slot="close">{{$t('m.Tags')}}</span>
             </i-switch>
-          </li> -->
+          </li>
           <li>
             <Input v-model="query.keyword"
                    @on-enter="filterByKeyword"
                    @on-click="filterByKeyword"
-                   placeholder="关键字"
+                   placeholder="关键词"
                    icon="ios-search-strong"/>
           </li>
           <li>
@@ -46,11 +46,30 @@
              disabled-hover></Table>
     </Panel>
     <Pagination
-      :total="total" :page-size.sync="query.limit" @on-change="pushRouter" @on-page-size-change="pushRouter" :current.sync="query.page" :show-sizer="true"></Pagination>
+      :total="total" :page-size.sync="query.limit" @on-change="pushRouter" @on-page-size-change="pushRouter" :current.sync="query.page" :show-sizer="true">
+    </Pagination>
 
     </Col>
 
-    <!-- z -->
+    <Col :span="5">
+    <Panel :padding="10">
+      <div slot="title" class="taglist-title">{{$t('m.Tags')}}</div>
+      <Button v-for="tag in tagList"
+              :key="tag.name"
+              @click="filterByTag(tag.name)"
+              type="ghost"
+              :disabled="query.tag === tag.name"
+              shape="circle"
+              class="tag-btn">{{tag.name}}
+      </Button>
+
+      <Button long id="pick-one" @click="pickone">
+        <Icon type="shuffle"></Icon>
+        {{$t('m.Pick_One')}}
+      </Button>
+    </Panel>
+    <Spin v-if="loadings.tag" fix size="large"></Spin>
+    </Col>
   </Row>
 </template>
 
@@ -115,20 +134,20 @@
               }, params.row.title)
             }
           },
-          // {
-          //   title: this.$i18n.t('m.Level'),
-          //   render: (h, params) => {
-          //     let t = params.row.difficulty
-          //     let color = 'blue'
-          //     if (t === 'Low') color = 'green'
-          //     else if (t === 'High') color = 'yellow'
-          //     return h('Tag', {
-          //       props: {
-          //         color: color
-          //       }
-          //     }, this.$i18n.t('m.' + params.row.difficulty))
-          //   }
-          // },
+          {
+            title: this.$i18n.t('m.Level'),
+            render: (h, params) => {
+              let t = params.row.difficulty
+              let color = 'blue'
+              if (t === 'Low') color = 'green'
+              else if (t === 'High') color = 'yellow'
+              return h('Tag', {
+                props: {
+                  color: color
+                }
+              }, this.$i18n.t('m.' + params.row.difficulty))
+            }
+          },
           {
             title: this.$i18n.t('m.Total'),
             key: 'submission_number'
