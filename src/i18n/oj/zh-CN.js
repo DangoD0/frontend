@@ -202,7 +202,7 @@ export const m = {
   Reset: '重置',
   Pick_One: '选择',
   Difficulty: '难度',
-  Total: '总数',
+  Total: '总提交数',
   AC_Rate: '通过率',
   // Register.vue
   RegisterUsername: '用户名',
