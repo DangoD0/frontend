@@ -5,19 +5,6 @@
       <div slot="title">{{$t('m.Problem_List')}}</div>
       <div slot="extra">
         <ul class="filter">
-          <!-- <li>
-            <Dropdown @on-click="filterByDifficulty">
-              <span>{{query.difficulty === '' ? this.$i18n.t('m.Difficulty') : this.$i18n.t('m.' + query.difficulty)}}
-                <Icon type="arrow-down-b"></Icon>
-              </span>
-              <Dropdown-menu slot="list">
-                <Dropdown-item name="">{{$t('m.All')}}</Dropdown-item>
-                <Dropdown-item name="Low">{{$t('m.Low')}}</Dropdown-item>
-                <Dropdown-item name="Mid" >{{$t('m.Mid')}}</Dropdown-item>
-                <Dropdown-item name="High">{{$t('m.High')}}</Dropdown-item>
-              </Dropdown-menu>
-            </Dropdown>
-          </li> -->
           <li>
             <i-switch size="large" @on-change="handleTagsVisible">
               <span slot="open">{{$t('m.Tags')}}</span>
@@ -46,7 +33,12 @@
              disabled-hover></Table>
     </Panel>
     <Pagination
-      :total="total" :page-size.sync="query.limit" @on-change="pushRouter" @on-page-size-change="pushRouter" :current.sync="query.page" :show-sizer="true">
+      :total="total" 
+      :page-size.sync="query.limit" 
+      @on-change="pushRouter" 
+      @on-page-size-change="pushRouter" 
+      :current.sync="query.page" 
+      :show-sizer="true">
     </Pagination>
 
     </Col>
@@ -134,20 +126,6 @@
               }, params.row.title)
             }
           },
-          // {
-          //   title: this.$i18n.t('m.Level'),
-          //   render: (h, params) => {
-          //     let t = params.row.difficulty
-          //     let color = 'blue'
-          //     if (t === 'Low') color = 'green'
-          //     else if (t === 'High') color = 'yellow'
-          //     return h('Tag', {
-          //       props: {
-          //         color: color
-          //       }
-          //     }, this.$i18n.t('m.' + params.row.difficulty))
-          //   }
-          // },
           {
             title: this.$i18n.t('m.Total'),
             key: 'submission_number'
@@ -169,7 +147,6 @@
         routeName: '',
         query: {
           keyword: '',
-          difficulty: '',
           tag: '',
           page: 1,
           limit: 10
@@ -183,7 +160,6 @@
       init (simulate = false) {
         this.routeName = this.$route.name
         let query = this.$route.query
-        this.query.difficulty = query.difficulty || ''
         this.query.keyword = query.keyword || ''
         this.query.tag = query.tag || ''
         this.query.page = parseInt(query.page) || 1
@@ -226,11 +202,6 @@
       },
       filterByTag (tagName) {
         this.query.tag = tagName
-        this.query.page = 1
-        this.pushRouter()
-      },
-      filterByDifficulty (difficulty) {
-        this.query.difficulty = difficulty
         this.query.page = 1
         this.pushRouter()
       },
