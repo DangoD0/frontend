@@ -138,9 +138,9 @@ export const m = {
   Theme: '主题',
   Reset_to_default_code_definition: '重设返回默认代码设置',
   Upload_file: '上传文件',
-  Monokai: '物界',
-  Solarized_Light: '日光灯',
-  Material: '材料',
+  Monokai: '深色+',
+  Solarized_Light: '浅色',
+  Material: '深色',
   // KatexEditor.vue
   Latex_Editor: 'Latex 编辑器',
   // NavBar.vue
