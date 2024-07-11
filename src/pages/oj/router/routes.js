@@ -73,12 +73,13 @@ export default [
   {
     name: 'contest-list',
     path: '/contest',
-    meta: {title: 'Contest List'},
+    meta: {title: 'Teaching'},
     component: Contest.ContestList
   },
   {
     name: 'contest-details',
     path: '/contest/:contestID/',
+    redirect: { name: 'contest-problem-list' },
     component: Contest.ContestDetails,
     meta: {title: 'Contest Details'},
     children: [
@@ -128,7 +129,7 @@ export default [
   },
   {
     name: 'user-home',
-    path: '/user-home',
+    path: '/user-home/:username',
     component: UserHome,
     meta: {requiresAuth: true, title: 'User Home'}
   },
@@ -152,7 +153,7 @@ export default [
         name: 'profile-setting',
         path: 'profile',
         meta: {requiresAuth: true, title: 'Profile Settings'},
-        component: Setting.AccountSetting
+        component: Setting.ProfileSetting
       },
       {
         name: 'account-setting',
