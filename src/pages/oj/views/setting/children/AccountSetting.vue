@@ -4,18 +4,18 @@
       <div class="left">
         <p class="section-title">{{$t('m.ChangePassword')}}</p>
         <Form class="setting-content" ref="formPassword" :model="formPassword" :rules="rulePassword">
-          <FormItem label="Old Password" prop="old_password">
+          <FormItem label="旧密码" prop="old_password">
             <Input v-model="formPassword.old_password" type="password"/>
           </FormItem>
-          <FormItem label="New Password" prop="new_password">
+          <FormItem label="新密码" prop="new_password">
             <Input v-model="formPassword.new_password" type="password"/>
           </FormItem>
-          <FormItem label="Confirm New Password" prop="again_password">
+          <FormItem label="确认新密码" prop="again_password">
             <Input v-model="formPassword.again_password" type="password"/>
           </FormItem>
-          <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
+          <!-- <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
             <Input v-model="formPassword.tfa_code"/>
-          </FormItem>
+          </FormItem> -->
           <FormItem v-if="visible.passwordAlert">
             <Alert type="success">你需要在5秒内重新登录..</Alert>
           </FormItem>
@@ -28,18 +28,18 @@
       <div class="right">
         <p class="section-title">{{$t('m.ChangeEmail')}}</p>
         <Form class="setting-content" ref="formEmail" :model="formEmail" :rules="ruleEmail">
-          <FormItem label="Current Password" prop="password">
+          <FormItem label="请输入密码" prop="password">
             <Input v-model="formEmail.password" type="password"/>
           </FormItem>
-          <FormItem label="Old Email">
+          <FormItem label="旧邮箱地址">
             <Input v-model="formEmail.old_email" disabled/>
           </FormItem>
-          <FormItem label="New Email" prop="new_email">
+          <FormItem label="新邮箱地址" prop="new_email">
             <Input v-model="formEmail.new_email"/>
           </FormItem>
-          <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
+          <!-- <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
             <Input v-model="formEmail.tfa_code"/>
-          </FormItem>
+          </FormItem> -->
           <Button type="primary" @click="changeEmail">{{$t('m.ChangeEmail')}}</Button>
         </Form>
       </div>
