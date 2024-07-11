@@ -289,6 +289,15 @@
         }).catch(() => {
         })
       },
+      // 打开用户对话框
+      openUserDialog (id) {
+        this.showUserDialog = true
+        api.getUser(id).then(res => {
+          this.user = res.data.data
+          this.user.password = ''
+          this.user.real_tfa = this.user.two_factor_auth
+        })
+      },
       // 获取用户列表
       getUserList (page) {
         this.loadingTable = true
