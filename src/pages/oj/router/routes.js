@@ -129,7 +129,7 @@ export default [
   },
   {
     name: 'user-home',
-    path: '/user-home/:username',
+    path: '/user-home',
     component: UserHome,
     meta: {requiresAuth: true, title: 'User Home'}
   },

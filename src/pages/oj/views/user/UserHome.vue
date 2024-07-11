@@ -25,11 +25,6 @@
             <p class="emphasis">{{profile.submission_number}}</p>
             <!-- <p class="emphasis">{{0}}</p> -->
           </div>
-          <div class="right">
-            <p>{{$t('m.UserHomeScore')}}</p>
-            <p class="emphasis">{{profile.total_score}}</p>
-            <!-- <p class="emphasis">{{0}}</p> -->
-          </div>
         </div>
         <div id="problems">
           <div v-if="problems.length">{{$t('m.List_Solved_Problems')}}
