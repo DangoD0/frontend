@@ -215,25 +215,6 @@
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item :label="$t('m.Two_Factor_Auth')">
-              <el-switch
-                v-model="user.two_factor_auth"
-                :disabled="!user.real_tfa"
-                active-color="#13ce66"
-                inactive-color="#ff4949">
-              </el-switch>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8">
-            <el-form-item label="Open Api">
-              <el-switch
-                v-model="user.open_api"
-                active-color="#13ce66"
-                inactive-color="#ff4949">
-              </el-switch>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8">
             <el-form-item :label="$t('m.Is_Disabled')">
               <el-switch
                 v-model="user.is_disabled">
@@ -306,15 +287,6 @@
         }).then(() => {
           this.showUserDialog = false
         }).catch(() => {
-        })
-      },
-      // 打开用户对话框
-      openUserDialog (id) {
-        this.showUserDialog = true
-        api.getUser(id).then(res => {
-          this.user = res.data.data
-          this.user.password = ''
-          this.user.real_tfa = this.user.two_factor_auth
         })
       },
       // 获取用户列表

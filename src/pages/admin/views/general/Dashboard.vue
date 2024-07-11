@@ -30,24 +30,6 @@
           </el-form>
         </div>
       </el-card>
-      <panel :title="$t('m.System_Overview')" v-if="isSuperAdmin">
-        <p>{{$t('m.DashBoardJudge_Server')}}:  {{infoData.judge_server_count}}</p>
-        <p>{{$t('m.HTTPS_Status')}}:
-          <el-tag :type="https ? 'success' : 'danger'" size="small">
-            {{ https ? 'Enabled' : 'Disabled'}}
-          </el-tag>
-        </p>
-        <p>{{$t('m.Force_HTTPS')}}:
-          <el-tag :type="forceHttps ? 'success' : 'danger'" size="small">
-            {{forceHttps ? 'Enabled' : 'Disabled'}}
-          </el-tag>
-        </p>
-        <p>{{$t('m.CDN_HOST')}}:
-          <el-tag :type="cdn ? 'success' : 'warning'" size="small">
-            {{cdn ? cdn : 'Not Use'}}
-          </el-tag>
-        </p>
-      </panel>
     </el-col>
 
     <el-col :md="14" :lg="16" v-if="isSuperAdmin">
@@ -80,9 +62,7 @@
         infoData: {
           user_count: 0,
           recent_contest_count: 0,
-          today_submission_count: 0,
-          judge_server_count: 0,
-          env: {}
+          today_submission_count: 0
         },
         activeNames: [1],
         session: {},
@@ -113,15 +93,6 @@
     },
     computed: {
       ...mapGetters(['profile', 'user', 'isSuperAdmin']),
-      cdn () {
-        return this.infoData.env.STATIC_CDN_HOST
-      },
-      https () {
-        return document.URL.slice(0, 5) === 'https'
-      },
-      forceHttps () {
-        return this.infoData.env.FORCE_HTTPS
-      },
       browser () {
         let b = browserDetector(this.session.user_agent)
         if (b.name && b.version) {
