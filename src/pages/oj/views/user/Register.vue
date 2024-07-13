@@ -122,11 +122,11 @@
         btnRegisterLoading: false,
         formRegister: {
           username: '',
+          character: '',
           password: '',
           passwordAgain: '',
           email: '',
           captcha: '',
-          character: ''
         },
         ruleRegister: {
           username: [
