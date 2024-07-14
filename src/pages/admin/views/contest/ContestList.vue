@@ -75,8 +75,8 @@
           <div slot-scope="scope">
             <icon-btn name="Edit" icon="edit" @click.native="goEdit(scope.row.id)"></icon-btn>
             <icon-btn name="Problem" icon="list-ol" @click.native="goContestProblemList(scope.row.id)"></icon-btn>
-            <icon-btn name="Announcement" icon="info-circle"
-                      @click.native="goContestAnnouncement(scope.row.id)"></icon-btn>
+            <!-- <icon-btn name="Announcement" icon="info-circle"
+                      @click.native="goContestAnnouncement(scope.row.id)"></icon-btn> -->
             <icon-btn icon="download" name="Download Accepted Submissions"
                       @click.native="openDownloadOptions(scope.row.id)"></icon-btn>
           </div>

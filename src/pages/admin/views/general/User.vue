@@ -67,11 +67,11 @@
       </div>
     </Panel>
 
-    <Panel>
+    <!-- <Panel>
       <span slot="title">{{$t('m.Import_User')}}
         <el-popover placement="right" trigger="hover">
           <p>Only support csv file without headers, check the <a
-            href="http://docs.onlinejudge.me/#/onlinejudge/guide/import_users">link</a> for details</p>
+            href="http://docs.onlinejudge.me/#/onlinejudge/guide/import_users">link</a> for details</p> 
           <i slot="reference" class="el-icon-fa-question-circle import-user-icon"></i>
         </el-popover>
       </span>
@@ -123,9 +123,9 @@
           </el-pagination>
         </div>
       </template>
-    </Panel>
+    </Panel> -->
 
-    <Panel :title="$t('m.Generate_User')">
+  <!--<Panel :title="$t('m.Generate_User')">
       <el-form :model="formGenerateUser" ref="formGenerateUser">
         <el-row type="flex" justify="space-between">
           <el-col :span="4">
@@ -171,7 +171,7 @@
           </span>
         </el-form-item>
       </el-form>
-    </Panel>
+    </Panel>-->
     <!--对话框-->
     <el-dialog :title="$t('m.User_Info')" :visible.sync="showUserDialog" :close-on-click-modal="false">
       <el-form :model="user" label-width="120px" label-position="left">

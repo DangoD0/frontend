@@ -66,7 +66,7 @@
               </el-switch>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
+          <!-- <el-col :span="4">
             <el-form-item :label="$t('m.ShareSubmission')">
               <el-switch
                 v-model="problem.share_submission"
@@ -74,7 +74,7 @@
                 inactive-text="">
               </el-switch>
             </el-form-item>
-          </el-col>
+          </el-col> -->
           <el-col :span="8">
             <el-form-item :label="$t('m.Tag')" :error="error.tags" required>
               <span class="tags">
@@ -162,11 +162,11 @@
             </el-col>
           </el-row>
         </el-form-item>
-        <el-form-item :label="$t('m.Special_Judge')" :error="error.spj">
+        <!-- <el-form-item :label="$t('m.Special_Judge')" :error="error.spj">
           <el-col :span="24">
             <el-checkbox v-model="problem.spj" @click.native.prevent="switchSpj()">{{$t('m.Use_Special_Judge')}}</el-checkbox>
           </el-col>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item v-if="problem.spj">
           <Accordion :title="$t('m.Special_Judge_Code')">
             <template slot="header">

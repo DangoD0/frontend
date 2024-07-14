@@ -39,10 +39,10 @@
           <el-col :span="8">
             <el-form-item :label="$t('m.Contest_Rule_Type')">
               <el-radio class="radio" v-model="contest.rule_type" label="ACM" :disabled="disableRuleType">ACM</el-radio>
-              <el-radio class="radio" v-model="contest.rule_type" label="OI" :disabled="disableRuleType">OI</el-radio>
+              <!-- <el-radio class="radio" v-model="contest.rule_type" label="OI" :disabled="disableRuleType">OI</el-radio> -->
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+          <!-- <el-col :span="8">
             <el-form-item :label="$t('m.Real_Time_Rank')">
               <el-switch
                 v-model="contest.real_time_rank"
@@ -50,7 +50,7 @@
                 inactive-color="#ff4949">
               </el-switch>
             </el-form-item>
-          </el-col>
+          </el-col> -->
           <el-col :span="8">
             <el-form-item :label="$t('m.Contest_Status')">
               <el-switch
@@ -60,7 +60,7 @@
               </el-switch>
             </el-form-item>
           </el-col>
-          <el-col :span="24">
+          <!-- <el-col :span="24">
             <el-form-item :label="$t('m.Allowed_IP_Ranges')">
               <div v-for="(range, index) in contest.allowed_ip_ranges" :key="index">
                 <el-row :gutter="20" style="margin-bottom: 15px">
@@ -74,7 +74,7 @@
                 </el-row>
               </div>
             </el-form-item>
-          </el-col>
+          </el-col> -->
         </el-row>
       </el-form>
       <save @click.native="saveContest"></save>
